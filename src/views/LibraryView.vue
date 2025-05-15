@@ -59,8 +59,8 @@ onMounted(async () => {
 
 <template>
   <v-container style="padding: 20px 0px 0px 10px">
-    <v-row style="padding-left: 10px">
-      <v-col cols="5" align-self="center">
+    <v-row style="padding-left:10px" justify="center" justify-md="start">
+      <v-col cols="10" md="5" align-self="center">
         <v-form fast-fail @submit.prevent="handleSearch" validate-on="submit">
           <v-text-field v-model="searchText" label="Search" variant="underlined" :rules="[rule]" />
           <v-btn type="submit" icon="mdi-magnify" color="error" size="small"></v-btn
@@ -70,8 +70,8 @@ onMounted(async () => {
   <Loading v-if="store.state.isLoading" />
   <v-infinite-scroll direction="vertical" :items="items" @load="load" v-else>
     <v-container style="padding-bottom: 100px">
-      <v-row>
-        <v-col v-for="(item, index) in items" :key="index" cols="2">
+      <v-row justify="center">
+        <v-col v-for="(item, index) in items" :key="index" cols="5" md="2">
           <v-hover>
             <template v-slot="{ isHovering, props }">
               <div
