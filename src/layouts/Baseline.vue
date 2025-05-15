@@ -2,9 +2,9 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
   const links = [
-    ['mdi-home', 'Home', "/"],
-    ['mdi-bookshelf', 'Library', "/library"],
+    ['mdi-bookshelf', 'Library', "/"],
     ['mdi-archive-clock', 'Watchlist', "/watchlist"],
+    ['mdi-home', 'Home', "/home"],
     ['mdi-information', 'About', "/about"],
   ]
 const drawer = ref(true)

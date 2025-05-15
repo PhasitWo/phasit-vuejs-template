@@ -26,7 +26,7 @@ const handleImgClick = async (target: Book) => {
 
 <template>
   <v-container style="padding-bottom: 100px">
-    <v-row justify="center">
+    <v-row justify="center" justify-md="start">
       <v-col v-for="(item, index) in items" :key="index" cols="5" md="2" v-if="items.length > 0">
         <v-hover>
           <template v-slot="{ isHovering, props }">
