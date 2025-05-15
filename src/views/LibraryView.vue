@@ -106,7 +106,7 @@ onMounted(async () => {
 
 <style scoped>
 .active {
-  transform: scale(1.1);
+  transform: scale(1.2);
   z-index: 1000;
 }
 .title {

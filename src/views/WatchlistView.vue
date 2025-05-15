@@ -27,7 +27,7 @@ const handleImgClick = async (target: Book) => {
 <template>
   <v-container style="padding-bottom: 100px">
     <v-row justify="center">
-      <v-col v-for="(item, index) in items" :key="index" cols="5" md="2">
+      <v-col v-for="(item, index) in items" :key="index" cols="5" md="2" v-if="items.length > 0">
         <v-hover>
           <template v-slot="{ isHovering, props }">
             <div
@@ -54,9 +54,10 @@ const handleImgClick = async (target: Book) => {
           </template>
         </v-hover>
       </v-col>
+      <span style="margin-top: 30px;" v-else>No Watchlist</span>
     </v-row>
   </v-container>
-   <BookDetailDialog v-model="showDialog" :book="selectedBook" mode="remove"/>
+  <BookDetailDialog v-model="showDialog" :book="selectedBook" mode="remove" />
 </template>
 
 <style scoped>

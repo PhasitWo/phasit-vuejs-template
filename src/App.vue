@@ -13,7 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <v-app>
+    <v-app style="overflow-x: hidden;">
       <component :is="layout">
         <v-main>
           <RouterView />

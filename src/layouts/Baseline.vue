@@ -3,9 +3,9 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
   const links = [
     ['mdi-home', 'Home', "/"],
-    ['mdi-information', 'About', "/about"],
     ['mdi-bookshelf', 'Library', "/library"],
     ['mdi-archive-clock', 'Watchlist', "/watchlist"],
+    ['mdi-information', 'About', "/about"],
   ]
 const drawer = ref(true)
 const route = useRouter()
@@ -22,12 +22,13 @@ const route = useRouter()
           :title="text"
           link
           :to="path"
+          color="error"
         ></v-list-item>
       </v-list>
   </v-navigation-drawer>
 
   <v-app-bar style="padding-left: 15px;">
-    <v-icon icon="$vuetify" @click="drawer = !drawer" color="error"></v-icon>
+    <v-icon icon="mdi-menu" @click="drawer = !drawer" color="error"></v-icon>
     <v-app-bar-title>{{ route.currentRoute.value.meta.title || "NO TITLE" }}</v-app-bar-title>
   </v-app-bar>
   <slot />
