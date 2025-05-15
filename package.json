@@ -25,6 +25,7 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@mdi/font": "^7.4.47",
     "@tsconfig/node22": "^22.0.1",
     "@types/node": "^22.15.18",
     "@vitejs/plugin-vue": "^5.2.3",

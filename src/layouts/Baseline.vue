@@ -2,9 +2,9 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
   const links = [
-    ['mdi-inbox-arrow-down', 'Home', "/"],
-    ['mdi-send', 'About', "/about"],
-    ['mdi-send', 'Library', "/library"],
+    ['mdi-home', 'Home', "/"],
+    ['mdi-information', 'About', "/about"],
+    ['mdi-bookshelf', 'Library', "/library"],
   ]
 const drawer = ref(true)
 const route = useRouter()
