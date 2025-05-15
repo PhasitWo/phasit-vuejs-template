@@ -10,32 +10,32 @@ const emit = defineEmits(['update:modelValue'])
 const store = useStore()
 
 // state
-const book = ref<Book | null>(null)
+const currentBook = ref<Book | null>(null)
 const canAdd = ref(true)
 
 // method
 const handleAdd = async () => {
-  if (!book) return
-  await store.dispatch('addWatchlist', book)
+  if (!currentBook.value) return
+  await store.dispatch('addWatchlist', currentBook)
   handleClose()
 }
 const handleRemove = async () => {
-  if (!book) return
-  await store.dispatch('removeFromWatchlist', book.value!.key)
+  if (!currentBook.value) return
+  await store.dispatch('removeFromWatchlist', currentBook.value!.key)
   handleClose()
 }
 const handleClose = () => emit('update:modelValue', false)
 
 // watcher
 watch(props, async () => {
-  book.value = props.book
-  const found = store.state.library.watchlist.find((v) => v.key === book.value?.key)
+  currentBook.value = props.book
+  const found = store.state.library.watchlist.find((v) => v.key === currentBook.value?.key)
   canAdd.value = found === undefined
 })
 </script>
 
 <template>
-  <v-dialog width="600" v-model="props.modelValue">
+  <v-dialog width="600" :model-value="props.modelValue">
     <v-card>
       <v-container>
         <v-row

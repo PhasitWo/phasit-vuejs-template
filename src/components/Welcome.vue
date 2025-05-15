@@ -26,7 +26,7 @@ watch(
 <template>
   <h1>{{ display }}</h1>
   <v-btn @click="increment">ADD</v-btn>
-  <li v-for="item in state.history">
+  <li v-for="item in state.history" :key="item">
     {{ item }}
   </li>
 </template>

@@ -1,4 +1,4 @@
-import { type ActionTree, type GetterTree, type Module, type MutationTree } from 'vuex'
+import { type ActionTree, type GetterTree, type MutationTree } from 'vuex'
 import api from '../axios'
 import { toRaw } from 'vue'
 
@@ -42,7 +42,7 @@ const mutations: MutationTree<LibraryStateType> = {
     return state
   },
 }
-
+// eslint-disable-next-line
 const actions: ActionTree<LibraryStateType, any> = {
   async fetchBookList(context, params?: SearchParams) {
     let requestURL = '/search.json?title=the&limit=12&page=1'
@@ -69,7 +69,8 @@ const actions: ActionTree<LibraryStateType, any> = {
     newState.push(targetBook)
     // save to localstorage
     const converted = []
-    for (let o of newState) {
+    for (const o of newState) {
+      // eslint-disable-next-line
       const obj = o as any
       if (obj.__v_isRef) converted.push(toRaw(obj._value))
       else converted.push(obj)
@@ -82,7 +83,8 @@ const actions: ActionTree<LibraryStateType, any> = {
     const newState = context.state.watchlist.filter((v) => v.key !== key)
     // save to localstorage
     const converted = []
-    for (let o of newState) {
+    for (const o of newState) {
+      // eslint-disable-next-line
       const obj = o as any
       if (obj.__v_isRef) converted.push(toRaw(obj._value))
       else converted.push(obj)
@@ -91,7 +93,7 @@ const actions: ActionTree<LibraryStateType, any> = {
     await context.dispatch('fetchWatchlist')
   },
 }
-
+// eslint-disable-next-line
 const getters: GetterTree<LibraryStateType, any> = {
   getBookByIndex: (state) => (index: number) => {
     return state.bookList.items.find((_, i) => index === i)
