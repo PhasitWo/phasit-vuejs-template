@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/HomeView.vue'
 import Library from '@/views/LibraryView.vue'
 import NotFound from '@/components/NotFound.vue'
+import Watchlist from '@/views/WatchlistView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -31,6 +32,12 @@ const router = createRouter({
       name: 'library',
       component: Library,
       meta: { title: 'Library', layout: 'Baseline' },
+    },
+    {
+      path: '/watchlist',
+      name: 'watchlist',
+      component: Watchlist,
+      meta: { title: 'Watchlist', layout: 'Baseline' },
     },
     {
       path: '/:pathMatch(.*)*',

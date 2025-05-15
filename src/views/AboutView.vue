@@ -1,6 +1,8 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div style="padding: 20px;">
+    <a href="https://github.com/PhasitWo/phasit-vuejs-template"
+      >github.com/PhasitWo/phasit-vuejs-template</a
+    >
   </div>
 </template>
 

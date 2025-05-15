@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
+import { useStore } from './store'
 
 const router = useRouter()
+const store = useStore()
 const layout = computed(() => router.currentRoute.value.meta.layout || 'div')
+
+onMounted(() => {
+  store.dispatch("fetchWatchlist")
+})
 </script>
 
 <template>

@@ -4,7 +4,7 @@ import { computed, reactive, watch } from 'vue'
 defineProps({
   text: { type: String, required: true },
 })
-// data
+// state
 const state = reactive<{ counter: number; history: string[] }>({ counter: 0, history: [] })
 
 // method

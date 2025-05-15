@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
     ['mdi-home', 'Home', "/"],
     ['mdi-information', 'About', "/about"],
     ['mdi-bookshelf', 'Library', "/library"],
+    ['mdi-archive-clock', 'Watchlist', "/watchlist"],
   ]
 const drawer = ref(true)
 const route = useRouter()
