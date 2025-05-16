@@ -21,3 +21,9 @@ onMounted(() => {
       </component>
     </v-app>
 </template>
+
+<style>
+.custom-confirm-btn {
+  color: white !important
+}
+</style>

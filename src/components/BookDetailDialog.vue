@@ -3,6 +3,7 @@ import noCoverImg from '@/assets/no_cover_img.jpg'
 import type { Book } from '@/store/modules/library'
 import { ref, watch } from 'vue'
 import { useStore } from '@/store'
+import Swal from 'sweetalert2'
 
 const props = defineProps<{ modelValue: boolean; book: Book | null; mode: 'add' | 'remove' }>()
 const emit = defineEmits(['update:modelValue'])
@@ -18,11 +19,27 @@ const handleAdd = async () => {
   if (!currentBook.value) return
   await store.dispatch('addWatchlist', currentBook)
   handleClose()
+  Swal.fire({
+    title: 'Added to watchlist',
+    icon: 'success',
+    confirmButtonColor: 'green',
+    customClass: {
+      confirmButton: 'custom-confirm-btn',
+    },
+  })
 }
 const handleRemove = async () => {
   if (!currentBook.value) return
   await store.dispatch('removeFromWatchlist', currentBook.value!.key)
   handleClose()
+  Swal.fire({
+    title: 'Removed from watchlist',
+    icon: 'success',
+    confirmButtonColor: 'green',
+    customClass: {
+      confirmButton: 'custom-confirm-btn',
+    },
+  })
 }
 const handleClose = () => emit('update:modelValue', false)
 
@@ -58,8 +75,12 @@ watch(props, async () => {
       </v-container>
       <v-spacer></v-spacer>
       <template v-slot:actions>
-        <v-btn v-if="props.mode == 'remove'" @click="handleRemove" color="warning"> REMOVE FROM WATCHLIST </v-btn>
-        <v-btn v-else @click="handleAdd" :disabled="!canAdd" color="success"> ADD TO WATCHLIST </v-btn>
+        <v-btn v-if="props.mode == 'remove'" @click="handleRemove" color="warning">
+          REMOVE FROM WATCHLIST
+        </v-btn>
+        <v-btn v-else @click="handleAdd" :disabled="!canAdd" color="success">
+          ADD TO WATCHLIST
+        </v-btn>
         <v-btn @click="handleClose" color="error"> Close </v-btn>
       </template>
     </v-card>
