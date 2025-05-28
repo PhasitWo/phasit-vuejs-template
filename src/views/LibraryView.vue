@@ -63,7 +63,7 @@ onMounted(async () => {
       <v-col cols="10" md="5" align-self="center">
         <v-form fast-fail @submit.prevent="handleSearch" validate-on="submit">
           <v-text-field v-model="searchText" label="Search" variant="underlined" :rules="[rule]" />
-          <v-btn type="submit" icon="mdi-magnify" color="error" size="small"></v-btn
+          <v-btn type="submit" icon="mdi-magnify" :color="store.state.gb.isRed ? 'error' : 'success'" size="small"></v-btn
         ></v-form>
       </v-col> </v-row
   ></v-container>

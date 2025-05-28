@@ -1,9 +1,15 @@
+<script setup lang="ts">
+import { useStore } from '@/store';
+
+const store = useStore()
+</script>
+
 <template>
   <div class="loading">
     <v-progress-circular
       :size="70"
       :width="7"
-      color="error"
+      :color="store.state.gb.isRed ? 'error' : 'success'"
       indeterminate
     ></v-progress-circular>
   </div>
